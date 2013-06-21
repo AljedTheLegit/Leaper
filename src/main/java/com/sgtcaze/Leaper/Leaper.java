@@ -42,7 +42,7 @@ public class Leaper extends JavaPlugin implements Listener {
 	      event.setCancelled(true);
 	      player.setAllowFlight(false);
 	      player.setFlying(false);
-	      player.setVelocity(player.getLocation().getDirection().multiply(1.D).setY(1.2D));
+	      player.setVelocity(player.getLocation().getDirection().multiply(1.2D).setY(1D));
 	    }
 	  }
 }
