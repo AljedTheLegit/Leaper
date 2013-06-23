@@ -1,0 +1,10 @@
+####################
+#      Leaper      #
+#    by sgtcaze    #
+####################
+
+FasterWalkSpeed: true
+# When players join, they can walk and run faster
+#
+BatTakeOffSound: false
+# If you want the bat noise on take off
