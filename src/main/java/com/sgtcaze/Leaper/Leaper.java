@@ -37,13 +37,13 @@ public class Leaper extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler
-	  public void onEntityDamage(EntityDamageEvent e)
-	  {		
-	    if (((e.getEntity() instanceof Player)) && (e.getCause() == EntityDamageEvent.DamageCause.FALL)){
-	      e.setCancelled(true);
-	  }
-	  }
-	
+	public void onEntityDamage(EntityDamageEvent e)
+	{
+		if(((e.getEntity() instanceof Player)) && (e.getCause() == EntityDamageEvent.DamageCause.FALL)){
+			e.setCancelled(true);
+		}
+	}
+ 
 	@EventHandler
 	  public void onMove(PlayerMoveEvent event)
 	  {
