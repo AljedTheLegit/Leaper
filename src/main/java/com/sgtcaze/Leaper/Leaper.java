@@ -40,10 +40,12 @@ public class Leaper extends JavaPlugin implements Listener {
 	public void onEntityDamage(EntityDamageEvent e)
 	{
 		if(((e.getEntity() instanceof Player)) && (e.getCause() == EntityDamageEvent.DamageCause.FALL)){
+			Player p = (Player)e.getEntity();
+			if(p.hasPermission("leaper.use")){
 			e.setCancelled(true);
 		}
 	}
- 
+	}
 	@EventHandler
 	  public void onMove(PlayerMoveEvent event)
 	  {
