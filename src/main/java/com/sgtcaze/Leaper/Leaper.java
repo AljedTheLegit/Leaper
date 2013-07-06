@@ -29,11 +29,12 @@ public class Leaper extends JavaPlugin implements Listener {
 	@EventHandler(priority = EventPriority.HIGH)
 	public void onPlayerJoin(PlayerJoinEvent event){
     Player p = event.getPlayer();
-    
+    //If you prefer potion effects instead of modified walk speed, uncomment these lines
+    //p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0), true);
+    //p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, Integer.MAX_VALUE, 0), true);
       if (this.getConfig().getString("FasterWalkSpeed").equalsIgnoreCase("true")) {
       p.setWalkSpeed(0.25F);
 	  }
-    //p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0), true);
 	}
 	
 	@EventHandler
