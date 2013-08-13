@@ -1,24 +1,28 @@
 ####################
 #      Leaper      #
 #    by sgtcaze    #
-#   Awwww Yeeaaa   #
 ####################
 
-# Quick information
-# This plugin has only one permission node: leaper.use
-# I am not implementing EnabledWorlds, because permissions will do a better job of this (I might add it in the future)
-# This is intended for hub servers, where there is typically only one world
-
-# This is slightly faster than normal walk speed, it helps the transition from jumping, and makes it smoother.
+# Slightly faster than normal walk speed, it helps the transition from leaping.
 SmootherWalk: true
-#
-# Customize how high and far they travel. These current settings match The ShotBow Network!
+
+# How high and far the players travel. This matches The ShotBow Network!
 multiply: 1.6
 height: 1
-#
-# Sound effects: Recommended to only have 1 enabled at a time! These sounds fit well.
-BatTakeOff: false
-EnderDragonWings: false
-ShootArrow: false
-#
-# This config is not set in stone, if you want anything added, just ask me @sgtcaze on most social media accounts
+
+Particles:
+  Smoke: false
+  MobSpawnerFlames: false
+  EnderSignal: false
+  PotionBreak: false
+
+Sounds:
+  BatTakeOff: false
+  EnderDragonWings: false
+  ShootArrow: false
+
+Worlds:
+  EnabledWorlds:
+  - world
+  DisabledWorlds:
+  - example
