@@ -79,7 +79,7 @@ public class Leaper extends JavaPlugin implements Listener {
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
-	public void FallDamage(EntityDamageByEntityEvent event) {
+	public void FallDamage(EntityDamageEvent event) {
 		Entity entity = event.getEntity();
 		Location loc = entity.getLocation();
 		World world = entity.getWorld();
