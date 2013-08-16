@@ -7,16 +7,19 @@ import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -50,7 +53,7 @@ public class Leaper extends JavaPlugin implements Listener {
 		}
 
 	}
-	
+
 	@EventHandler
 	public void onMove(PlayerMoveEvent event) {
 		Player player = event.getPlayer();
@@ -72,6 +75,19 @@ public class Leaper extends JavaPlugin implements Listener {
 				event.getPlayer().setAllowFlight(false);
 			}
 
+		}
+	}
+
+	@EventHandler(priority = EventPriority.NORMAL)
+	public void FallDamage(EntityDamageByEntityEvent event) {
+		Entity entity = event.getEntity();
+		Location loc = entity.getLocation();
+		World world = entity.getWorld();
+		if (this.config.getList("Worlds.EnabledWorlds").contains(
+				world.getName())) {
+			if (entity instanceof Player) {
+				event.setCancelled(true);
+			}
 		}
 	}
 
