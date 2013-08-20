@@ -21,6 +21,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerToggleFlightEvent;
@@ -86,7 +87,9 @@ public class Leaper extends JavaPlugin implements Listener {
 		if (this.config.getList("Worlds.EnabledWorlds").contains(
 				world.getName())) {
 			if (entity instanceof Player) {
-				event.setCancelled(true);
+				if (event.getCause() == DamageCause.FALL) {
+					event.setCancelled(true);
+				}
 			}
 		}
 	}
